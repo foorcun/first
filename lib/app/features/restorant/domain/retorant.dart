@@ -1,9 +1,9 @@
-// class Restaurant {
+// class Restorant {
 //   String restorantId;
 //   String restorantName;
 //   String restorantMenuId;
 
-//   Restaurant({
+//   Restorant({
 //     required this.restorantId,
 //     required this.restorantName,
 //     required this.restorantMenuId,

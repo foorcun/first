@@ -1,0 +1,15 @@
+{
+  "restaurants": [
+    {
+      "name": "Restaurant 1",
+      "cuisine": "Italian"
+    },
+    {
+      "name": "Restaurant 2",
+      "cuisine": "Chinese"
+    },    {
+      "name": "Restaurant 3",
+      "cuisine": "Mexican"
+    }
+  ]
+}
