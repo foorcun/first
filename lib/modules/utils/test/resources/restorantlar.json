@@ -1,0 +1,14 @@
+{
+  "restorantlar": [
+    {
+      "restorantId": "res1",
+      "restorantName": "Kedi Cafe",
+      "restorantMenuId": "resMen1"
+    },
+    {
+      "restorantId": "res2",
+      "restorantName": "Napoli Pizza",
+      "restorantMenuId": "resMen2"
+    }
+  ]
+}
