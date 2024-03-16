@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
-import 'package:first/app/features/restaurant/domain/Restaurant.dart';
+import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:first/modules/utils/main/flutter/HttpClientUtil.dart';
 import 'package:first/modules/utils/main/flutter/JsonUtil.dart';
 
@@ -9,7 +8,7 @@ import 'package:first/modules/utils/main/flutter/JsonUtil.dart';
 
 class MenuGroupService {
   // Simulate fetching restaurant data from a remote server
-  Future<MenuGroup> fetchMenuGroup() async {
+  Future<MenuGroups> fetchMenuGroup() async {
     // Simulate network delay
     await Future.delayed(Duration(seconds: 2));
 
@@ -20,7 +19,7 @@ class MenuGroupService {
 
 print(json);
 
-MenuGroup menuGroup = MenuGroup.fromJson(json);
+MenuGroups menuGroup = MenuGroups.fromJson(json);
 
 
     return menuGroup;

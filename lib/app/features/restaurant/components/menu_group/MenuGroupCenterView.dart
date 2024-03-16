@@ -1,17 +1,17 @@
-import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
+import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:flutter/material.dart';
 
 class MenuGroupCenterView extends StatelessWidget {
-  final Future<MenuGroup> menuGroupFuture;
+  final Future<MenuGroups> menuGroupFuture;
 
   const MenuGroupCenterView({Key? key, required this.menuGroupFuture})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<MenuGroup>(
+    return FutureBuilder<MenuGroups>(
       future: menuGroupFuture,
-      builder: (context, AsyncSnapshot<MenuGroup> snapshot) {
+      builder: (context, AsyncSnapshot<MenuGroups> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: CircularProgressIndicator(),
