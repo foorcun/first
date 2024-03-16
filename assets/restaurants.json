@@ -7,9 +7,13 @@
     {
       "name": "Restaurant 2",
       "cuisine": "Chinese"
-    },    {
+    },
+    {
       "name": "Restaurant 3",
       "cuisine": "Mexican"
+    },
+    {
+      "name": "Restaurant 4"
     }
   ]
 }

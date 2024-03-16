@@ -1,5 +1,5 @@
-import 'package:first/app/features/restorant/RestaurantService.dart';
-import 'package:first/app/features/restorant/components/RestaurantListView.dart';
+import 'package:first/app/features/restaurant/RestaurantService.dart';
+import 'package:first/app/features/restaurant/components/RestaurantListView.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

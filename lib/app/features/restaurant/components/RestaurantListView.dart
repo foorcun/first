@@ -1,4 +1,4 @@
-import 'package:first/app/features/restorant/domain/Restaurant.dart';
+import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:flutter/material.dart';
 
 

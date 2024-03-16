@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:first/app/features/restorant/domain/Restaurant.dart';
+import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/modules/utils/main/flutter/HttpClientUtil.dart';
 import 'package:first/modules/utils/main/flutter/JsonUtil.dart';
 
@@ -26,11 +26,11 @@ class RestaurantService {
         print(json["restaurants"]);
         print(json["restaurants"][0]);
 
-List<Restaurant> restaurants = [];
-Restaurant r = Restaurant.fromJson(json["restaurants"][0]);
-print("####");
-print(r);
-restaurants.add(r);
+List<Restaurant> restaurants = (json["restaurants"] as List<dynamic>).map((json) => Restaurant.fromJson(json)).toList();
+
+// json["restaurants"].map((json) => 
+//     Restaurant.fromJson(json)).toList();
+
     return restaurants;
   }
 }
