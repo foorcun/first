@@ -1,5 +1,8 @@
+import 'package:first/app/features/restaurant/MenuGroupService.dart';
 import 'package:first/app/features/restaurant/RestaurantService.dart';
 import 'package:first/app/features/restaurant/components/RestaurantListView.dart';
+import 'package:first/app/features/restaurant/components/menu_group/MenuGroupView.dart';
+import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -33,13 +36,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: RestaurantListView(
-          futureRestaurants: RestaurantService().fetchRestaurants()),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // body: RestaurantListView(
+      //     futureRestaurants: RestaurantService().fetchRestaurants()),
+      body:MenuGroupView(menuGroupFuture: MenuGroupService().fetchMenuGroup(),),
     );
   }
 }

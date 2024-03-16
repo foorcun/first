@@ -1,0 +1,15 @@
+{
+    "menuGroupId":"menuGroupId 1",
+    "menuler":[
+        {
+            "menuId":"menuId 1"
+            
+        },
+        {
+            "menuId":"menuId 2"
+        },
+        {
+            "menuId":"menuId 3"
+        }
+    ]
+}
