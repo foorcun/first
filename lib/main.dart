@@ -1,8 +1,4 @@
-import 'package:first/app/features/restaurant/MenuGroupService.dart';
-import 'package:first/app/features/restaurant/RestaurantService.dart';
-import 'package:first/app/features/restaurant/components/RestaurantListView.dart';
-import 'package:first/app/features/restaurant/components/menu_group/MenuGroupView.dart';
-import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
+import 'package:first/app/pages/Routes.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -21,34 +17,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: routes,
+      initialRoute: '/',
+      // home: const HomePage(),
+      // home: const MenuGroupPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      // body: RestaurantListView(
-      //     futureRestaurants: RestaurantService().fetchRestaurants()),
-      body:MenuGroupView(menuGroupFuture: MenuGroupService().fetchMenuGroup(),),
-    );
-  }
-}

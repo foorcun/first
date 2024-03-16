@@ -1,11 +1,10 @@
 import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
 import 'package:flutter/material.dart';
 
-
-class MenuGroupView extends StatelessWidget {
+class MenuGroupCenterView extends StatelessWidget {
   final Future<MenuGroup> menuGroupFuture;
 
-  const MenuGroupView({Key? key, required this.menuGroupFuture})
+  const MenuGroupCenterView({Key? key, required this.menuGroupFuture})
       : super(key: key);
 
   @override
@@ -14,34 +13,20 @@ class MenuGroupView extends StatelessWidget {
       future: menuGroupFuture,
       builder: (context, AsyncSnapshot<MenuGroup> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text("Loading..."),
-            ),
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
+          return const Center(
+            child: CircularProgressIndicator(),
           );
         } else if (snapshot.hasError) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text("Error"),
-            ),
-            body: Center(
-              child: Text("Error: ${snapshot.error}"),
-            ),
+          return Center(
+           child: Text("Error: ${snapshot.error}"),
           );
         } else {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(snapshot.data!.menuGroupId),
-            ),
-            body: Center(
+          return 
+             Center(
               child: Text(
                 snapshot.data!.menuGroupId,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-            ),
           );
         }
       },
