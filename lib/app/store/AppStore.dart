@@ -1,7 +1,7 @@
 // Update the initial state to include menu groups
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
-import 'package:first/main.dart';
+import 'package:first/main-redux.dart';
 
 class AppState {
   final List<Restaurant> restaurantList;
