@@ -6,10 +6,10 @@ import 'package:first/main-redux.dart';
 class AppState {
   final List<Restaurant> restaurantList;
   final Restaurant? selectedRestaurant;
-  final MenuGroups? menuGroups;
+  final List<MenuGroups>? menuGroupsList;
   final bool isLoading;
 
-  AppState({required this.restaurantList, this.selectedRestaurant, this.menuGroups, required this.isLoading});
+  AppState({required this.restaurantList, this.selectedRestaurant, this.menuGroupsList, required this.isLoading});
 }
 
 
@@ -21,7 +21,7 @@ AppState initialState = AppState(
       ],
       selectedRestaurant: null,
       // menuGroups: MenuGroups(groups: ['Appetizers', 'Main Course', 'Desserts']),
-      menuGroups: MenuGroups(menuGroupId:"me 1" ),
+      menuGroupsList: [],
       isLoading: false
     );
 

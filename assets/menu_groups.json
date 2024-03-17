@@ -1,15 +1,18 @@
 {
-    "menuGroupId":"menuGroupId 1",
-    "menuler":[
+  "menuGroups": [
+    {
+      "menuGroupId": "menuGroupId 1",
+      "menuler": [
         {
-            "menuId":"menuId 1"
-            
+          "menuId": "menuId 1"
         },
         {
-            "menuId":"menuId 2"
+          "menuId": "menuId 2"
         },
         {
-            "menuId":"menuId 3"
+          "menuId": "menuId 3"
         }
-    ]
+      ]
+    }
+  ]
 }

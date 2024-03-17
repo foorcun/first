@@ -4,8 +4,6 @@ import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/modules/utils/main/flutter/HttpClientUtil.dart';
 import 'package:first/modules/utils/main/flutter/JsonUtil.dart';
 
-
-
 class RestaurantService {
   // Simulate fetching restaurant data from a remote server
   Future<List<Restaurant>> fetchRestaurants() async {
@@ -19,16 +17,17 @@ class RestaurantService {
     //   Restaurant(name: 'Restaurant 3', cuisine: 'Mexican'),
     // ];
 
-        String value = await HttpClientUtil.get(
-        "assets/restaurants.json");
-        Map<String, dynamic> json = JsonUtil.fromJsonToMap(value);
-        print(json);
-        print(json["restaurants"]);
-        print(json["restaurants"][0]);
+    String value = await HttpClientUtil.get("assets/restaurants.json");
+    Map<String, dynamic> json = JsonUtil.fromJsonToMap(value);
+    print(json);
+    print(json["restaurants"]);
+    print(json["restaurants"][0]);
 
-List<Restaurant> restaurants = (json["restaurants"] as List<dynamic>).map((json) => Restaurant.fromJson(json)).toList();
+    List<Restaurant> restaurants = (json["restaurants"] as List<dynamic>)
+        .map((json) => Restaurant.fromJson(json))
+        .toList();
 
-// json["restaurants"].map((json) => 
+// json["restaurants"].map((json) =>
 //     Restaurant.fromJson(json)).toList();
 
     return restaurants;

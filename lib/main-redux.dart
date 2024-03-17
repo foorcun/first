@@ -72,7 +72,7 @@ class FlutterReduxApp extends StatelessWidget {
                             ),
                             const SizedBox(height: 20),
                             StoreConnector<AppState, MenuGroups?>(
-                              converter: (store) => store.state.menuGroups,
+                              converter: (store) => store.state.menuGroupsList![0],
                               builder: (context, menuGroups) {
                                 return menuGroups != null
                                     ? Text(menuGroups.menuGroupId)

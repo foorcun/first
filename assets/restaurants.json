@@ -2,7 +2,8 @@
   "restaurants": [
     {
       "name": "Restaurant 1",
-      "cuisine": "Chinese"
+      "cuisine": "Chinese",
+      "menuGroupId": "menuGroupId 1"
     },
     {
       "name": "Restaurant 2",

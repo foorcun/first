@@ -2,7 +2,7 @@
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 
 class UpdateMenuGroupsAction {
-  final MenuGroups menuGroups;
+  final List<MenuGroups> menuGroupsList;
 
-  UpdateMenuGroupsAction(this.menuGroups);
+  UpdateMenuGroupsAction(this.menuGroupsList);
 }
