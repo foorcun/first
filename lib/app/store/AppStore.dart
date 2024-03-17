@@ -34,4 +34,4 @@ AppState initialState = AppState(
   // 6 widget field properties
   // 7 StoreConnector
   // 7-a converter: (store) => store.state.selectedRestaurant
-  // 7-b dispatch()
+  // 7-b dispatch() iki tipi var bi store.dispatch bi de StoreProvider.of<AppState>(context).dispatch
