@@ -2,11 +2,11 @@
   "restaurants": [
     {
       "name": "Restaurant 1",
-      "cuisine": "Italian"
+      "cuisine": "Chinese"
     },
     {
       "name": "Restaurant 2",
-      "cuisine": "Chinese"
+      "cuisine": "Italian"
     },
     {
       "name": "Restaurant 3",

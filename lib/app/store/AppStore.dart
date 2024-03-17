@@ -7,8 +7,9 @@ class AppState {
   final List<Restaurant> restaurantList;
   final Restaurant? selectedRestaurant;
   final MenuGroups? menuGroups;
+  final bool isLoading;
 
-  AppState({required this.restaurantList, this.selectedRestaurant, this.menuGroups});
+  AppState({required this.restaurantList, this.selectedRestaurant, this.menuGroups, required this.isLoading});
 }
 
 
@@ -21,6 +22,7 @@ AppState initialState = AppState(
       selectedRestaurant: null,
       // menuGroups: MenuGroups(groups: ['Appetizers', 'Main Course', 'Desserts']),
       menuGroups: MenuGroups(menuGroupId:"me 1" ),
+      isLoading: false
     );
 
 
@@ -31,3 +33,5 @@ AppState initialState = AppState(
   // 5 main.dart icinde void main()
   // 6 widget field properties
   // 7 StoreConnector
+  // 7-a converter: (store) => store.state.selectedRestaurant
+  // 7-b dispatch()
