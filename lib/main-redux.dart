@@ -75,7 +75,7 @@ class FlutterReduxApp extends StatelessWidget {
                               converter: (store) => store.state.menuGroupsList![0],
                               builder: (context, menuGroups) {
                                 return menuGroups != null
-                                    ? Text(menuGroups.menuGroupId)
+                                    ? Text(menuGroups.menuGroupsId)
                                     : Container();
                                 // return menuGroups != null
                                 //     ? Column(

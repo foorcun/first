@@ -3,9 +3,9 @@ import 'package:first/app/features/restaurant/components/menu_group/MenuGroupCen
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/app/store/AppStore.dart';
+import 'package:first/app/store/selectors/GetMenuGroupsSelector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:collection/collection.dart';
 
 class MenuGroupPage extends StatelessWidget {
   const MenuGroupPage({super.key});
@@ -31,16 +31,11 @@ class MenuGroupPage extends StatelessWidget {
                       ),
                       body: Center(
                         // child: MenuGroupCenterView(menuGroupFuture: MenuGroupService().fetchMenuGroup(),),
-                        child: StoreConnector<AppState, List<MenuGroups>>(
-                            converter: (store) => store.state.menuGroupsList!,
-                            builder: (context, menuGroupsList) {
-                              MenuGroups? mG = menuGroupsList.firstWhereOrNull(
-                                (element) =>
-                                    element.menuGroupId ==
-                                    selectedRestaurant.menuGroupId,
-                              );
-                              return mG != null
-                                  ? Text(mG.menuGroupId)
+                        child: StoreConnector<AppState, MenuGroups?>(
+                            converter: (store) => getMenuGroupsSelector(store, selectedRestaurant),
+                            builder: (context, menuGroups) {
+                              return menuGroups != null
+                                  ? Text(menuGroups.menuGroupsId)
                                   : Text("no data");
                               //  var v =  menuGroupsList.firstWhere((element) =>
                               //       element.menuGroupId == selectedRestaurant.menuGroupId);

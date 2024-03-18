@@ -34,11 +34,11 @@ class MenuGroupCenterPage extends StatelessWidget {
         } else {
           return Scaffold(
             appBar: AppBar(
-              title: Text(snapshot.data!.menuGroupId),
+              title: Text(snapshot.data!.menuGroupsId),
             ),
             body: Center(
               child: Text(
-                snapshot.data!.menuGroupId,
+                snapshot.data!.menuGroupsId,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),

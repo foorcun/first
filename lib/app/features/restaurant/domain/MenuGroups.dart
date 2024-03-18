@@ -1,9 +1,9 @@
 
 class MenuGroups{
-  final String menuGroupId;
+  final String menuGroupsId;
 
-  MenuGroups({required this.menuGroupId});
+  MenuGroups({required this.menuGroupsId});
 
  MenuGroups.fromJson(Map<String, dynamic> json)
-    : menuGroupId = json['menuGroupId'] as String;
+    : menuGroupsId = json['menuGroupId'] as String;
 }

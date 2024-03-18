@@ -24,7 +24,7 @@ class FutureMenuGroupCenterView extends StatelessWidget {
           return 
              Center(
               child: Text(
-                snapshot.data!.menuGroupId,
+                snapshot.data!.menuGroupsId,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
           );

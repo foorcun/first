@@ -7,7 +7,9 @@
     },
     {
       "name": "Restaurant 2",
-      "cuisine": "Italian"
+      "cuisine": "Italian",
+      "menuGroupId": "menuGroupId 2"
+
     },
     {
       "name": "Restaurant 3",
