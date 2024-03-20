@@ -38,6 +38,8 @@ dependencies:
   mockito: ^5.4.4
   http: ^1.2.1
   flutter_redux: ^0.10.0
+  collection: ^1.18.0
+  redux: ^5.0.0
   
 
 dev_dependencies:

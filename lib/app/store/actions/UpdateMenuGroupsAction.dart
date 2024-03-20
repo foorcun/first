@@ -1,8 +1,9 @@
 // Define an action to update menu groups
+import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 
 class UpdateMenuGroupsAction {
-  final List<MenuGroups> menuGroupsList;
+  final MenuGroups menuGroups;
 
-  UpdateMenuGroupsAction(this.menuGroupsList);
+  UpdateMenuGroupsAction(this.menuGroups);
 }

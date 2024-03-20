@@ -1,4 +1,4 @@
-import 'package:first/app/features/restaurant/components/RestaurantListView.dart';
+import 'package:first/app/features/restaurant/components/retaurant/RestaurantListView.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/app/store/AppStore.dart';
 import 'package:flutter/material.dart';

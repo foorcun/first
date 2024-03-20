@@ -1,33 +1,27 @@
 {
-  "menuGroupsId": "menuGroupsId 1",
   "menuGroups": [
     {
+      "restaurantId": "restaurantId 1",
       "menuGroupId": "menuGroupId 1",
-      "menuler": [
+      "menuSubGroups": [
         {
-          "menuId": "menuId 1"
+          "menuSubGroupId": "menuSubGroupId 1",
+          "menuGroupId": "menuGroupId 1",
+          "menuSubGroupName": "Pizzalar",
+          "menuSubGroupDescription": "menuSubGroupDescription 1",
+          "menuSubGroupImage": "menuSubGroupImage 1"
         },
         {
-          "menuId": "menuId 2"
-        },
-        {
-          "menuId": "menuId 3"
+          "menuSubGroupId": "menuSubGroupId 2",
+          "menuGroupId": "menuGroupId 1",
+          "menuSubGroupName": "menuSubGroupName 2",
+          "menuSubGroupDescription": "menuSubGroupDescription 2",
+          "menuSubGroupImage": "menuSubGroupImage 2"
         }
       ]
     },
     {
-      "menuGroupId": "menuGroupId 2",
-      "menuler": [
-        {
-          "menuId": "menuId 4"
-        },
-        {
-          "menuId": "menuId 5"
-        },
-        {
-          "menuId": "menuId 6"
-        }
-      ]
+      "menuGroupId": "menuGroupId 2"
     }
   ]
 }

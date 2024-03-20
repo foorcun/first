@@ -4,12 +4,13 @@ import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/main-redux.dart';
 
 class AppState {
-  final List<Restaurant> restaurantList;
+  final List<Restaurant> restaurantList; // qr gelince tum Restoran table ini almamiza gerek kalmayacak.
   final Restaurant? selectedRestaurant;
-  final List<MenuGroups>? menuGroupsList;
+  // final List<MenuGroup>? menuGroupsList;
+  final MenuGroups? menuGroups;
   final bool isLoading;
 
-  AppState({required this.restaurantList, this.selectedRestaurant, this.menuGroupsList, required this.isLoading});
+  AppState({required this.restaurantList, this.selectedRestaurant,this.menuGroups, required this.isLoading});
 }
 
 
@@ -21,7 +22,7 @@ AppState initialState = AppState(
       ],
       selectedRestaurant: null,
       // menuGroups: MenuGroups(groups: ['Appetizers', 'Main Course', 'Desserts']),
-      menuGroupsList: [],
+      menuGroups: null,
       isLoading: false
     );
 

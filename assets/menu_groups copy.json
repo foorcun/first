@@ -1,0 +1,37 @@
+{
+  "menuGroups": [
+    {
+      "menuGroupId": "menuGroupsId 1",
+      "menuSubGroups": [
+        {
+          "menuGroupId": "menuGroupId 1",
+          "menuler": [
+            {
+              "menuId": "menuId 1"
+            },
+            {
+              "menuId": "menuId 2"
+            },
+            {
+              "menuId": "menuId 3"
+            }
+          ]
+        },
+        {
+          "menuGroupId": "menuGroupId 2",
+          "menuler": [
+            {
+              "menuId": "menuId 4"
+            },
+            {
+              "menuId": "menuId 5"
+            },
+            {
+              "menuId": "menuId 6"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
