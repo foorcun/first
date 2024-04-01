@@ -24,7 +24,7 @@ class MenulerListView extends StatelessWidget {
             return ListTile(
               leading: Icon(Icons.restaurant),
               title: Text(menuler![index].menuId),
-              // subtitle: Text('Cuisine: ${restaurantList[index].cuisine}'),
+              subtitle: Text('${menuler[index].menuAdi}'),
               onTap: () {
                 // // Handle tap on the restaurant
                 // print('Tapped on ${restaurantList[index].name}');
