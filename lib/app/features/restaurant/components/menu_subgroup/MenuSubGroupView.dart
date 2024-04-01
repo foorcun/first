@@ -20,7 +20,7 @@ class MenuSubGroupListView extends StatelessWidget {
         return ListTile(
           leading: Icon(Icons.restaurant),
           title: Text(menuSubGroupList[index].menuSubGroupName!),
-          // subtitle: Text('Cuisine: ${restaurantList[index].cuisine}'),
+          subtitle: Text('${menuSubGroupList[index].menuler?.length.toString()}'),
           onTap: () {
             // // Handle tap on the restaurant
             // print('Tapped on ${restaurantList[index].name}');
