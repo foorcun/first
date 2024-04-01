@@ -1,0 +1,16 @@
+{
+    "menuler":[
+        {
+            "menuId":"1",
+            "menuAdi": "Margarita pizza"
+        },
+        {
+            "menuId":"2",
+            "menuAdi": "Parti pizza"
+        },
+        {
+            "menuId":"3",
+            "menuAdi": "Kola"
+        }
+    ]
+}

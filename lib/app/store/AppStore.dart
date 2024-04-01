@@ -1,4 +1,5 @@
 // Update the initial state to include menu groups
+import 'package:first/app/features/restaurant/domain/Menu.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/main-redux.dart';
@@ -9,8 +10,9 @@ class AppState {
   // final List<MenuGroup>? menuGroupsList;
   final MenuGroups? menuGroups;
   final bool isLoading;
+  final List<Menu>? menuler;
 
-  AppState({required this.restaurantList, this.selectedRestaurant,this.menuGroups, required this.isLoading});
+  AppState({required this.restaurantList, this.selectedRestaurant,this.menuGroups, required this.isLoading, this.menuler});
 }
 
 
@@ -23,7 +25,8 @@ AppState initialState = AppState(
       selectedRestaurant: null,
       // menuGroups: MenuGroups(groups: ['Appetizers', 'Main Course', 'Desserts']),
       menuGroups: null,
-      isLoading: false
+      isLoading: false,
+      menuler: null,
     );
 
 

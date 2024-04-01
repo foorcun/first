@@ -1,3 +1,4 @@
+import 'package:first/app/features/restaurant/components/menu_subgroup/MenuSubGroupView.dart';
 import 'package:first/app/features/restaurant/services/MenuGroupsService.dart';
 import 'package:first/app/features/restaurant/components/menu_group/MenuGroupCenterView.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
@@ -30,25 +31,24 @@ class MenuGroupPage extends StatelessWidget {
                             Theme.of(context).colorScheme.inversePrimary,
                         title: Text(selectedRestaurant.name + " Page"),
                       ),
-                      body: Column(
-                        children: [
-                          Center(
-                            // child: MenuGroupCenterView(menuGroupFuture: MenuGroupService().fetchMenuGroup(),),
-                            child: StoreConnector<AppState, MenuGroup?>(
-                                converter: (store) => getMenuGroupSelector(
-                                    store, selectedRestaurant),
-                                builder: (context, menuGroup) {
-                                  return menuGroup?.menuGroupId != null
-                                      // ? Text(menuGroup?.menuSubGroups?.length as String)
-                                      ? Text(menuGroup!.menuGroupId)
-                                      : Text("no data2");
-                                  //  var v =  menuGroupsList.firstWhere((element) =>
-                                  //       element.menuGroupId == selectedRestaurant.menuGroupId);
-                                  //  return  Text(menuGroupsList[0].menuGroupId);
-                                  // return Text(v.menuGroupId);
-                                }),
-                          ),
-                        ],
+                      body: Center(
+                        // child: MenuGroupCenterView(menuGroupFuture: MenuGroupService().fetchMenuGroup(),),
+                        child: StoreConnector<AppState, MenuGroup?>(
+                            converter: (store) =>
+                                getMenuGroupSelector(store, selectedRestaurant),
+                            builder: (context, menuGroup) {
+                              return menuGroup?.menuGroupId != null
+                                  // ? Text(menuGroup?.menuSubGroups?.length as String)
+                                  // ? Text(menuGroup!.menuGroupId)
+                                  ? MenuSubGroupListView(
+                                      menuSubGroupList:
+                                          menuGroup!.menuSubGroups)
+                                  : Text("no data2");
+                              //  var v =  menuGroupsList.firstWhere((element) =>
+                              //       element.menuGroupId == selectedRestaurant.menuGroupId);
+                              //  return  Text(menuGroupsList[0].menuGroupId);
+                              // return Text(v.menuGroupId);
+                            }),
                       ),
                     );
                   });

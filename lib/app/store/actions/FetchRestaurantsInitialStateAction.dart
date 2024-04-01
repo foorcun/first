@@ -1,11 +1,14 @@
 import 'dart:async';
+import 'package:first/app/features/restaurant/domain/Menu.dart';
 import 'package:first/app/features/restaurant/services/MenuGroupsService.dart';
+import 'package:first/app/features/restaurant/services/MenulerService.dart';
 import 'package:first/app/features/restaurant/services/RestaurantService.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/app/store/AppStore.dart';
 import 'package:first/app/store/actions/LoadingStateAction.dart';
 import 'package:first/app/store/actions/SetInitialMenuGroupsStateAction.dart';
+import 'package:first/app/store/actions/SetInitialMenulerStateAction.dart';
 import 'package:first/app/store/actions/SetInitialStateAction.dart';
 import 'package:redux/redux.dart';
 
@@ -28,6 +31,10 @@ class FetchRestaurantsInitialStateAction {
           await MenuGroupsService().fetchMenuGroups();
       
       store.dispatch(SetInitialMenuGroupsStateAction(menuGroups)); 
+
+      List<Menu> menuler = await MenulerService().fetchMenu();
+      store.dispatch(SetInitialMenulerStateAction(menuler));
+
     });
 
   }

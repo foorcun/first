@@ -1,4 +1,5 @@
 // Update the reducer to handle updating menu groups
+import 'package:first/app/store/actions/SetInitialMenulerStateAction.dart';
 import 'package:first/app/store/actions/UpdateMenuGroupsAction.dart';
 import 'package:first/app/store/AppStore.dart';
 import 'package:first/app/store/actions/LoadingStateAction.dart';
@@ -43,6 +44,14 @@ AppState appReducer(AppState state, dynamic action) {
         menuGroups: action.menuGroups,
         isLoading: action.isLoading);
   }
+    if(action is SetInitialMenulerStateAction){
+        return AppState(
+        restaurantList: state.restaurantList,
+        selectedRestaurant: state.selectedRestaurant,
+        menuGroups: state.menuGroups,
+        isLoading: state.isLoading,
+        menuler: action.menuler);
+    }
   return state;
 }
 

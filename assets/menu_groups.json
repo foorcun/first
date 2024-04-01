@@ -9,19 +9,35 @@
           "menuGroupId": "menuGroupId 1",
           "menuSubGroupName": "Pizzalar",
           "menuSubGroupDescription": "menuSubGroupDescription 1",
-          "menuSubGroupImage": "menuSubGroupImage 1"
+          "menuSubGroupImage": "menuSubGroupImage 1",
+          "menuler": [
+            {
+              "menuId": "1",
+              "menuAdi": "Margarita pizza"
+            },
+            {
+              "menuId": "2",
+              "menuAdi": "Parti pizza"
+            }
+          ]
         },
         {
           "menuSubGroupId": "menuSubGroupId 2",
           "menuGroupId": "menuGroupId 1",
-          "menuSubGroupName": "menuSubGroupName 2",
+          "menuSubGroupName": "icecekler",
           "menuSubGroupDescription": "menuSubGroupDescription 2",
           "menuSubGroupImage": "menuSubGroupImage 2"
         }
       ]
     },
     {
-      "menuGroupId": "menuGroupId 2"
+      "menuGroupId": "menuGroupId 2",
+      "menuSubGroups": [
+        {
+          "menuSubGroupId": "menuSubGroupId 3",
+          "menuGroupId": "menuGroupId 2"
+        }
+      ]
     }
   ]
 }

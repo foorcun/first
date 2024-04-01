@@ -1,3 +1,4 @@
+import 'package:first/app/features/restaurant/components/menuler/MenulerListViewPage.dart';
 import 'package:first/app/pages/HomePage.dart';
 import 'package:first/app/pages/MenuGroupPage.dart';
 import 'package:first/app/pages/MenuGroupsPage.dart';
@@ -9,5 +10,6 @@ Map<String, WidgetBuilder> routes = {
   '/homePage': (context) => HomePage(),
   '/menuGroupPage': (context) => MenuGroupPage(),
   '/menuGroupsPage': (context) => MenuGroupsPage(),
+  '/menuler': (context) => MenulerListViewPage(),
 };
 
