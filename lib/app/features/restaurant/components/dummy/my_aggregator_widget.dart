@@ -12,7 +12,7 @@ class MyAggregatorWidget extends StatelessWidget {
       child: Column(
         children: [
           MyListView(),
-          MySecondWidget()
+          MySecondWidget(),
         ],
       ),
     ) ;
