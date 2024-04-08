@@ -10,7 +10,7 @@ class MenuGroupsService {
   // Future<List<MenuGroups>> fetchMenuGroups() async {
   Future<MenuGroups> fetchMenuGroups() async {
     // Simulate network delay
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
 
     String value = await HttpClientUtil.get("assets/menu_groups.json");
     Map<String, dynamic> json = JsonUtil.fromJsonToMap(value);
@@ -29,7 +29,7 @@ print(json["menuGroups"]);
 
     Future<MenuGroup> findMenuGroup(menuGroupId) async {
     // Simulate network delay
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
 
     String value = await HttpClientUtil.get("assets/menu_groups.json");
     Map<String, dynamic> json = JsonUtil.fromJsonToMap(value);

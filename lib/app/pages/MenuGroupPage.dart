@@ -1,8 +1,5 @@
-import 'package:first/app/features/restaurant/components/dummy/my_aggregator_widget.dart';
-import 'package:first/app/features/restaurant/components/menu_group/MenuGroupListView.dart';
-import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
-import 'package:first/app/features/restaurant/domain/Restaurant.dart';
-import 'package:first/app/features/restaurant/services/MenuGroupsService.dart';
+import 'package:first/app/features/restaurant/components/dummy/menu_group/menu_group_list_view_widget.dart';
+import 'package:first/app/features/restaurant/domain/dummy/dummy_domain.dart';
 import 'package:first/app/store/AppStore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -14,6 +11,9 @@ class MenuGroupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(dummyRestaurant.name),
+      ),
       body: StoreConnector<AppState, bool>(
           converter: (store) => store.state.isLoading,
           builder: (context, isLoading) {
@@ -22,7 +22,15 @@ class MenuGroupPage extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   )
                 : Column(
-                    children: [MyAggregatorWidget(), MenuGroupListView()],
+                    // children: [MyAggregatorWidget(), MenuGroupListView()],
+                    children: [
+                      // CoreListViewWidget(
+                      //   listString: dummyListString,
+                      // ),
+                      MenuGroupWidget(
+                        menuGroup: dummyListMenuGroup[0],
+                      ),
+                    ],
                   );
           }),
     );
