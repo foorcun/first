@@ -1,11 +1,8 @@
-
-
-
+import 'package:first/app/features/restaurant/domain/CartItem.dart';
 import 'package:first/app/features/restaurant/domain/Menu.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
 import 'package:first/app/features/restaurant/domain/MenuSubGroup.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
-
 
 // Restaurant
 
@@ -101,9 +98,22 @@ List<MenuGroup> dummyListMenuGroup = [
   ),
 ];
 
+Menu dummyMenu = Menu(
+  menuId: '123',
+  menuAdi: 'Nurkan ciger',
+);
 
-
-Menu dummyMenu =  Menu(
-            menuId: '123',
-            menuAdi: 'Nurkan ciger',
-          );
+List<CartItem> dummyCart = [
+  CartItem(
+      menu: Menu(
+        menuId: '123',
+        menuAdi: 'Nurkan ciger',
+      ),
+      amount: 2),
+  CartItem(
+      menu: Menu(
+        menuId: '12',
+        menuAdi: 'Es Campur',
+      ),
+      amount: 1)
+];

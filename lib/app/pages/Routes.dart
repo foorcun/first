@@ -1,4 +1,5 @@
 import 'package:first/app/features/restaurant/components/menuler/MenulerListViewPage.dart';
+import 'package:first/app/pages/CartPage.dart';
 import 'package:first/app/pages/HomePage.dart';
 import 'package:first/app/pages/MenuGroupPage.dart';
 import 'package:first/app/pages/MenuSelectionPage.dart';
@@ -11,6 +12,7 @@ Map<String, WidgetBuilder> routes = {
   '/menuGroupPage': (context) => MenuGroupPage(),
   // '/menuGroupsPage': (context) => MenuGroupsPage(),
   // '/menuler': (context) => MenulerListViewPage(),
-  '/menuSelectionPage':(context) => MenuSelectionPage()
+  '/menuSelectionPage':(context) => MenuSelectionPage(),
+  '/cartPage':(context) => CartPage()
 };
 

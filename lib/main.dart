@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: routes,
         // initialRoute: '/',
-        initialRoute: '/menuSelectionPage',
+        initialRoute: '/cartPage',
         // home: const HomePage(),
         // home: const MenuGroupPage(),
       ),
