@@ -1,6 +1,7 @@
 import 'package:first/app/features/restaurant/domain/CartItem.dart';
-import 'package:first/app/features/restaurant/domain/Menu.dart';
+import 'package:first/app/features/restaurant/domain/MenuItem.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroup.dart';
+import 'package:first/app/features/restaurant/domain/MenuItem.dart';
 import 'package:first/app/features/restaurant/domain/MenuSubGroup.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 
@@ -8,8 +9,6 @@ import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 
 Restaurant dummyRestaurant = Restaurant(
   name: 'Kedi Cafe',
-  cuisine: 'Jl. Raya Kuta No. 1',
-  menuGroupId: '08123456789',
 );
 
 // MenuGroups//
@@ -20,36 +19,36 @@ List<MenuGroup> dummyListMenuGroup = [
       MenuSubGroup(
         menuSubGroupId: '1',
         menuSubGroupName: 'Pizzalar',
-        menuler: [
-          Menu(
-            menuId: '1',
-            menuAdi: 'Nasi Goreng',
+        menuItems: [
+          MenuItem(
+            menuItemId: '1',
+            menuItemName: 'Nasi Goreng',
           ),
-          Menu(
-            menuId: '2',
-            menuAdi: 'Mie Goreng',
+          MenuItem(
+            menuItemId: '2',
+            menuItemName: 'Mie Goreng',
           ),
-          Menu(
-            menuId: '3',
-            menuAdi: 'Ayam Goreng',
+          MenuItem(
+            menuItemId: '3',
+            menuItemName: 'Ayam Goreng',
           ),
         ],
       ),
       MenuSubGroup(
         menuSubGroupId: '2',
         menuSubGroupName: 'Tostlar',
-        menuler: [
-          Menu(
-            menuId: '4',
-            menuAdi: 'Es Teh',
+        menuItems: [
+          MenuItem(
+            menuItemId: '4',
+            menuItemName: 'Es Teh',
           ),
-          Menu(
-            menuId: '5',
-            menuAdi: 'Es Jeruk',
+          MenuItem(
+            menuItemId: '5',
+            menuItemName: 'Es Jeruk',
           ),
-          Menu(
-            menuId: '6',
-            menuAdi: 'Es Campur',
+          MenuItem(
+            menuItemId: '6',
+            menuItemName: 'Es Campur',
           ),
         ],
       ),
@@ -61,36 +60,36 @@ List<MenuGroup> dummyListMenuGroup = [
       MenuSubGroup(
         menuSubGroupId: '3',
         menuSubGroupName: 'Pizzalar',
-        menuler: [
-          Menu(
-            menuId: '7',
-            menuAdi: 'Nasi Uduk',
+        menuItems: [
+          MenuItem(
+            menuItemId: '7',
+            menuItemName: 'Nasi Uduk',
           ),
-          Menu(
-            menuId: '8',
-            menuAdi: 'Mie Rebus',
+          MenuItem(
+            menuItemId: '8',
+            menuItemName: 'Mie Rebus',
           ),
-          Menu(
-            menuId: '9',
-            menuAdi: 'Ayam Bakar',
+          MenuItem(
+            menuItemId: '9',
+            menuItemName: 'Ayam Bakar',
           ),
         ],
       ),
       MenuSubGroup(
         menuSubGroupId: '4',
         menuSubGroupName: 'Tostlar',
-        menuler: [
-          Menu(
-            menuId: '10',
-            menuAdi: 'Es Teh',
+        menuItems: [
+          MenuItem(
+            menuItemId: '10',
+            menuItemName: 'Es Teh',
           ),
-          Menu(
-            menuId: '11',
-            menuAdi: 'Es Jeruk',
+          MenuItem(
+            menuItemId: '11',
+            menuItemName: 'Es Jeruk',
           ),
-          Menu(
-            menuId: '12',
-            menuAdi: 'Es Campur',
+          MenuItem(
+            menuItemId: '12',
+            menuItemName: 'Es Campur',
           ),
         ],
       ),
@@ -98,22 +97,22 @@ List<MenuGroup> dummyListMenuGroup = [
   ),
 ];
 
-Menu dummyMenu = Menu(
-  menuId: '123',
-  menuAdi: 'Nurkan ciger',
+MenuItem dummyMenu = MenuItem(
+  menuItemId: '123',
+  menuItemName: 'Nurkan ciger',
 );
 
 List<CartItem> dummyCart = [
   CartItem(
-      menu: Menu(
-        menuId: '123',
-        menuAdi: 'Nurkan ciger menu',
+      menuItem: MenuItem(
+        menuItemId: '123',
+        menuItemName: 'Nurkan ciger menu',
       ),
       amount: 2),
   CartItem(
-      menu: Menu(
-        menuId: '12',
-        menuAdi: 'Es Campur menu',
+      menuItem: MenuItem(
+        menuItemId: '12',
+        menuItemName: 'Es Campur menu',
       ),
       amount: 1)
 ];

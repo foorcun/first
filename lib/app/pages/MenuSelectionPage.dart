@@ -1,4 +1,5 @@
 import 'package:first/app/features/restaurant/domain/Menu.dart';
+import 'package:first/app/features/restaurant/domain/MenuItem.dart';
 import 'package:first/app/features/restaurant/domain/dummy/dummy_domain.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MenuSelectionPage extends StatelessWidget {
         children: [
           Expanded(
             flex: 9,
-            child: MenuSelectionWidget(menu: dummyMenu),
+            child: MenuSelectionWidget(menuItem: dummyMenu),
           ),
           Expanded(
             flex: 1,
@@ -35,15 +36,15 @@ class MenuSelectionPage extends StatelessWidget {
 class MenuSelectionWidget extends StatelessWidget {
   const MenuSelectionWidget({
     super.key,
-    required this.menu,
+    required this.menuItem,
   });
 
-  final Menu menu;
+  final MenuItem menuItem;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      menu.menuAdi!,
+      menuItem.menuItemName!,
       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     );
   }

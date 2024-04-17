@@ -19,6 +19,7 @@ class RestaurantService {
 
     String value = await HttpClientUtil.get("assets/restaurants.json");
     Map<String, dynamic> json = JsonUtil.fromJsonToMap(value);
+    print("#### restorant json ilk okuma: ");
     print(json);
     print(json["restaurants"]);
     print(json["restaurants"][0]);

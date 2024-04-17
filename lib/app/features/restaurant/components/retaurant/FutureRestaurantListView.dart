@@ -29,7 +29,7 @@ class FutureRestaurantListView extends StatelessWidget {
               return ListTile(
                 leading: Icon(Icons.restaurant),
                 title: Text(restaurants[index].name),
-                subtitle: Text('Cuisine: ${restaurants[index].cuisine}'),
+                // subtitle: Text('Cuisine: ${restaurants[index].cuisine}'),
                 onTap: () {
                   // Handle tap on the restaurant
                   print('Tapped on ${restaurants[index].name}');

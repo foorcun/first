@@ -41,7 +41,7 @@ class CartItemListViewWidget extends StatelessWidget{
       itemCount: cart.length,
       itemBuilder: (context, index){
         return ListTile(
-          title: Text(cart[index].menu.menuAdi!),
+          title: Text(cart[index].menuItem.menuItemName!),
           subtitle: Text(cart[index].amount.toString()),
         );
       });

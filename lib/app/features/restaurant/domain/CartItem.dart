@@ -1,7 +1,8 @@
 import 'package:first/app/features/restaurant/domain/Menu.dart';
+import 'package:first/app/features/restaurant/domain/MenuItem.dart';
 
 class CartItem{
-  Menu menu;
+  MenuItem menuItem;
   int amount;
-  CartItem({required this.menu, required this.amount});
+  CartItem({required this.menuItem, required this.amount});
 }

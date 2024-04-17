@@ -5,7 +5,7 @@ import 'package:collection/collection.dart';
 
 MenuGroup? getMenuGroupReducer(AppState state, dynamic action) {
   if (action is GetMenuGroupsAction) {
-  return state.menuGroups?.menuGroupList?.firstWhereOrNull((element) => element.menuGroupId == action.selectedRestaurant.menuGroupId);
+  return state.menuGroups?.menuGroupList?.firstWhereOrNull((element) => element.menuGroupId == action.selectedRestaurant.menu!.menuAdi);
   }
   return null;
 }

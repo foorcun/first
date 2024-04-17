@@ -9,18 +9,18 @@ import 'package:redux/redux.dart';
 
 class MenuSubGroupListView extends StatelessWidget {
   final List<MenuSubGroup> menuSubGroupList;
-
-  MenuSubGroupListView({required this.menuSubGroupList});
+  const MenuSubGroupListView({super.key, required this.menuSubGroupList});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: menuSubGroupList!.length,
+      shrinkWrap: true,
+      itemCount: menuSubGroupList.length,
       itemBuilder: (context, index) {
         return ListTile(
           leading: Icon(Icons.restaurant),
           title: Text(menuSubGroupList[index].menuSubGroupName!),
-          subtitle: Text('${menuSubGroupList[index].menuler?.length.toString()}'),
+          // subtitle: Text('${menuSubGroupList[index].menuler?.length.toString()}'),
           onTap: () {
             // // Handle tap on the restaurant
             // print('Tapped on ${restaurantList[index].name}');

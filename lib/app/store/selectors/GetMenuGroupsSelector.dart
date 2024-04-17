@@ -8,6 +8,6 @@ MenuGroup? getMenuGroupSelector(
     Store<AppState> store, Restaurant selectedRestaurant) {
   //return store.state.menuGroups;
   return store.state.menuGroups?.menuGroupList?.firstWhereOrNull(
-    (element) => element.menuGroupId == selectedRestaurant.menuGroupId,
+    (element) => element.menuGroupId == selectedRestaurant.menu!.menuAdi,
   );
 }

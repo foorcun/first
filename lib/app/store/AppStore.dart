@@ -2,7 +2,6 @@
 import 'package:first/app/features/restaurant/domain/Menu.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
-import 'package:first/main-redux.dart';
 
 class AppState {
   final List<Restaurant> restaurantList; // qr gelince tum Restoran table ini almamiza gerek kalmayacak.
@@ -17,11 +16,12 @@ class AppState {
 
 
 AppState initialState = AppState(
-      restaurantList: [
-        Restaurant(name: 'Restaurant 1', cuisine: 'Italian'),
-        Restaurant(name: 'Restaurant 2', cuisine: 'Mexican'),
-        Restaurant(name: 'Restaurant 3', cuisine: 'Chinese'),
-      ],
+      // restaurantList: [
+      //   Restaurant(name: 'Restaurant 1', cuisine: 'Italian'),
+      //   Restaurant(name: 'Restaurant 2', cuisine: 'Mexican'),
+      //   Restaurant(name: 'Restaurant 3', cuisine: 'Chinese'),
+      // ],
+      restaurantList: [],
       selectedRestaurant: null,
       // menuGroups: MenuGroups(groups: ['Appetizers', 'Main Course', 'Desserts']),
       menuGroups: null,
