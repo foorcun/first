@@ -1,3 +1,4 @@
+import 'package:first/app/features/restaurant/components/menu_subgroup/MenuSubGroupListView.dart';
 import 'package:first/app/features/restaurant/components/menu_subgroup/MenuSubGroupView.dart';
 import 'package:first/app/features/restaurant/domain/MenuSubGroup.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
@@ -89,7 +90,10 @@ class MenuSubGroupLIstView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // return Text(menuSubGroups.length.toString());
-    return MenuSubGroupListView(menuSubGroupList: menuSubGroups,);
+    return SingleChildScrollView(child: ListView.builder(
+      shrinkWrap: true,
+      itemCount: menuSubGroups.length,
+      itemBuilder:(context,index)=> MenuSubGroupView(menuSubGroup: menuSubGroups[index],)));
     
   }
 }

@@ -1,35 +1,62 @@
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
 import 'package:first/app/features/restaurant/domain/MenuSubGroup.dart';
-import 'package:first/app/features/restaurant/domain/Restaurant.dart';
-import 'package:first/app/store/AppStore.dart';
-import 'package:first/app/store/actions/SelectRestaurantAction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-class MenuSubGroupListView extends StatelessWidget {
-  final List<MenuSubGroup> menuSubGroupList;
-  const MenuSubGroupListView({super.key, required this.menuSubGroupList});
+class MenuSubGroupView extends StatelessWidget {
+  final MenuSubGroup menuSubGroup;
+  const MenuSubGroupView({super.key, required this.menuSubGroup});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: menuSubGroupList.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: Icon(Icons.restaurant),
-          title: Text(menuSubGroupList[index].menuSubGroupName!),
-          // subtitle: Text('${menuSubGroupList[index].menuler?.length.toString()}'),
-          onTap: () {
-            // // Handle tap on the restaurant
-            // print('Tapped on ${restaurantList[index].name}');
-            // StoreProvider.of<AppState>(context)
-            //     .dispatch(SelectRestaurantAction(restaurantList[index]));
-            // Navigator.pushNamed(context, "/menuGroupPage");
-          },
-        );
-      },
-    );
+    return Column(children: [
+      Text(menuSubGroup.menuSubGroupId != null
+          ? menuSubGroup.menuSubGroupId!
+          : 'No menuSubGroupId found'),
+      menuSubGroup.menuItems == null
+          ? Text("no munu items found")
+          : ListView.builder(
+              shrinkWrap: true,
+              itemCount: menuSubGroup.menuItems!.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Icon(Icons.restaurant),
+                  title: menuSubGroup.menuItems![index].menuItemId != null
+                      ? Text(menuSubGroup.menuItems![index].menuItemId!)
+                      : Text('No menu menuItemName found'),
+                  // subtitle: Text('${menuSubGroupList[index].menuler?.length.toString()}'),
+                  onTap: () {
+                    // // Handle tap on the restaurant
+                    // print('Tapped on ${restaurantList[index].name}');
+                    // StoreProvider.of<AppState>(context)
+                    //     .dispatch(SelectRestaurantAction(restaurantList[index]));
+                    // Navigator.pushNamed(context, "/menuGroupPage");
+                  },
+                );
+              },
+            )
+    ]);
   }
 }
+
+
+    // : ListView.builder(
+    //   shrinkWrap: true,
+    //   itemCount: menuSubGroup.menuItems!.length,
+    //   itemBuilder: (context, index) {
+    //     return ListTile(
+    //       leading: Icon(Icons.restaurant),
+    //       title: menuSubGroup.menuItems![index].menuItemId != null ? Text(menuSubGroup.menuItems![index].menuItemId!): Text('No menu menuItemName found'),
+    //       // subtitle: Text('${menuSubGroupList[index].menuler?.length.toString()}'),
+    //       onTap: () {
+    //         // // Handle tap on the restaurant
+    //         // print('Tapped on ${restaurantList[index].name}');
+    //         // StoreProvider.of<AppState>(context)
+    //         //     .dispatch(SelectRestaurantAction(restaurantList[index]));
+    //         // Navigator.pushNamed(context, "/menuGroupPage");
+    //       },
+    //     );
+    //   },
+    // );
+  

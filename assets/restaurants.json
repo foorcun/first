@@ -9,38 +9,28 @@
           {
             "menuSubGroupId": "menuSubGroupId 1",
             "menuSubGroupName": "menuSubGroupName 1",
-            "menuItems" : [
+            "menuItems": [
               {
-                "menuItemId": "menuItemId 1",
-                "menuItems": [
-                  {
-                    "menuId": "1",
-                    "menuAdi": "Margarita pizza"
-                  },
-                  {
-                    "menuId": "2",
-                    "menuAdi": "Party pizza"
-                  }
-                ]
+                "menuItemId": "menuItemId 1-1",
+                "menuItemName": "Margarita pizza"
+              },
+              {
+                "menuItemId": "menuItemId 1-2",
+                "menuItemName": "Party pizza"
               }
             ]
           },
           {
             "menuSubGroupId": "menuSubGroupId 2",
             "menuSubGroupName": "menuSubGroupName 2",
-            "menuItems" : [
+            "menuItems": [
               {
-                "menuItemId": "menuItemId 2",
-                "menuItems": [
-                  {
-                    "menuId": "1",
-                    "menuAdi": "Margarita pizza"
-                  },
-                  {
-                    "menuId": "2",
-                    "menuAdi": "Party pizza"
-                  }
-                ]
+                "menuItemId": "menuItemId 2-1",
+                "menuItemName": "su pizza"
+              },
+              {
+                "menuItemId": "menuItemId 2-2",
+                "menuItemName": "bu pizza"
               }
             ]
           }

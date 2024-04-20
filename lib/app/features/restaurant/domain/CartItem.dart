@@ -1,4 +1,3 @@
-import 'package:first/app/features/restaurant/domain/Menu.dart';
 import 'package:first/app/features/restaurant/domain/MenuItem.dart';
 
 class CartItem{
