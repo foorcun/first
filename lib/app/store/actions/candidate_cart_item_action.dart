@@ -18,3 +18,10 @@ class CandidateCartItemQuantityDecrementAction {
 
   CandidateCartItemQuantityDecrementAction(this.cartItem);
 }
+
+
+class CandidateCartItemAddAction {
+  final CartItem cartItem;
+
+  CandidateCartItemAddAction(this.cartItem);
+}

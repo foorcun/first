@@ -16,35 +16,45 @@ AppState appReducer(AppState state, dynamic action) {
         selectedRestaurant: action
             .restaurant, // appReducer, action icindeki datanin state e gecirilmesini saglamakla gorevli
         menuGroups: state.menuGroups,
-        isLoading: false);
+        isLoading: false,
+        cart: state.cart
+        );
   }
   if (action is UpdateMenuGroupsAction) {
     return AppState(
         restaurantList: state.restaurantList,
         selectedRestaurant: state.selectedRestaurant,
         menuGroups: action.menuGroups,
-        isLoading: false);
+        isLoading: false,
+        cart: state.cart
+        );
   }
   if (action is SetInitialRestaurantStateAction) {
     return AppState(
         restaurantList: action.listRestaurant,
         selectedRestaurant: state.selectedRestaurant,
         menuGroups: state.menuGroups,
-        isLoading: action.isLoading);
+        isLoading: action.isLoading,
+        cart: state.cart
+        );
   }
   if(action is LoadingStateAction){
         return AppState(
         restaurantList: state.restaurantList,
         selectedRestaurant: state.selectedRestaurant,
         menuGroups: state.menuGroups,
-        isLoading: action.isLoading);
+        isLoading: action.isLoading,
+        cart: state.cart
+        );
   }
     if(action is SetInitialMenuGroupsStateAction){
         return AppState(
         restaurantList: state.restaurantList,
         selectedRestaurant: state.selectedRestaurant,
         menuGroups: action.menuGroups,
-        isLoading: action.isLoading);
+        isLoading: action.isLoading,
+        cart: state.cart
+        );
   }
     if(action is SetInitialMenulerStateAction){
         return AppState(
@@ -52,7 +62,9 @@ AppState appReducer(AppState state, dynamic action) {
         selectedRestaurant: state.selectedRestaurant,
         menuGroups: state.menuGroups,
         isLoading: state.isLoading,
-        menuler: action.menuler);
+        menuler: action.menuler,
+        cart: state.cart
+        );
     }
     if(action is CandidateCartItemAction){
                         print("CandidateCartItemAction Reducer oncesi");
@@ -63,7 +75,9 @@ AppState appReducer(AppState state, dynamic action) {
         menuGroups: state.menuGroups,
         isLoading: state.isLoading,
         menuler: state.menuler,
-        candidateCartItem: action.cartItem);
+        candidateCartItem: action.cartItem,
+        cart: state.cart
+        );
     }
         if(action is CandidateCartItemQuantityInrementAction){
         return AppState(
@@ -72,7 +86,9 @@ AppState appReducer(AppState state, dynamic action) {
         menuGroups: state.menuGroups,
         isLoading: state.isLoading,
         menuler: state.menuler,
-        candidateCartItem: CartItem(menuItem: action.cartItem.menuItem, quantity: action.cartItem.quantity + 1)
+        candidateCartItem: CartItem(menuItem: action.cartItem.menuItem, quantity: action.cartItem.quantity + 1),
+        cart: state.cart
+
         );
     }
     if(action is CandidateCartItemQuantityDecrementAction){
@@ -83,8 +99,23 @@ AppState appReducer(AppState state, dynamic action) {
         isLoading: state.isLoading,
         menuler: state.menuler,
         candidateCartItem: action.cartItem.quantity != 0 ? CartItem(menuItem: action.cartItem.menuItem, quantity: action.cartItem.quantity - 1) : action.cartItem
+        ,
+        cart: state.cart
         );
     } 
+    if(action is CandidateCartItemAddAction){
+      List<CartItem> cartt = state.cart;
+      cartt.add(action.cartItem);
+        return AppState(
+        restaurantList: state.restaurantList,
+        selectedRestaurant: state.selectedRestaurant,
+        menuGroups: state.menuGroups,
+        isLoading: state.isLoading,
+        menuler: state.menuler,
+        candidateCartItem: action.cartItem,
+        cart: cartt
+        );
+    }
   return state;
 }
 

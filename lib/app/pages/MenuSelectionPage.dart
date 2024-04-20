@@ -80,6 +80,12 @@ class FooterWidget extends StatelessWidget {
     print('_onDecrement');
     StoreProvider.of<AppState>(context).dispatch(CandidateCartItemQuantityDecrementAction(candidateCartItem));
   }
+  void _onAddToCart() {
+    print('_onAddToCart');
+    StoreProvider.of<AppState>(context).dispatch(CandidateCartItemAddAction(candidateCartItem));
+    Navigator.pushNamed(context, "/menuGroupPage");
+
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -116,7 +122,9 @@ class FooterWidget extends StatelessWidget {
           Expanded(
             flex:2,
             child: ElevatedButton(
-              onPressed: null,
+              onPressed: (){
+                _onAddToCart();
+              },
               child: Text('Add to Cart'),
             ),
           ),

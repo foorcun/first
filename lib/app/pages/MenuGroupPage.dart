@@ -1,5 +1,6 @@
 import 'package:first/app/features/restaurant/components/menu_subgroup/MenuSubGroupListView.dart';
 import 'package:first/app/features/restaurant/components/menu_subgroup/MenuSubGroupView.dart';
+import 'package:first/app/features/restaurant/domain/CartItem.dart';
 import 'package:first/app/features/restaurant/domain/MenuSubGroup.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 import 'package:first/app/store/AppStore.dart';
@@ -50,12 +51,33 @@ class MenuGroupPage extends StatelessWidget {
             converter: (store) => store.state.selectedRestaurant,
             builder: (context, selectedRestaurant) {
               return AppBar(
-                title:  Text(selectedRestaurant!.name),
+                title:  AppBarText(selectedRestaurant: selectedRestaurant!),
               );
             }
           );
         }
+        
       }
+
+class AppBarText extends StatelessWidget {
+  const AppBarText({
+    super.key,
+    required this.selectedRestaurant
+  });
+
+  final Restaurant selectedRestaurant;
+
+  @override
+  Widget build(BuildContext context) {
+    return StoreConnector<AppState, List<CartItem>?>(
+      converter: (store) => store.state.cart,
+      builder: (context, cart) {
+        print(cart != null ? cart.toString() : '0F');
+        return Text(selectedRestaurant.name + ' - ' + (cart != null ? cart.length.toString() : '0'));
+      }
+    );
+  }
+}
 
       // ...
 

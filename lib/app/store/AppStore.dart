@@ -13,9 +13,11 @@ class AppState {
   final bool isLoading;
   final List<Menu>? menuler; // Silinecek
   final CartItem? candidateCartItem;
+  final List<CartItem> cart;
 
   AppState({required this.restaurantList, this.selectedRestaurant,
-    this.menuGroups, required this.isLoading, this.menuler, this.candidateCartItem});
+    this.menuGroups, required this.isLoading, this.menuler, this.candidateCartItem,
+    required this.cart});
 }
 
 
@@ -26,7 +28,8 @@ AppState initialState = AppState(
       menuGroups: null,
       isLoading: false,
       menuler: null,
-      candidateCartItem: null
+      candidateCartItem: null,
+      cart: []
       
     );
 
