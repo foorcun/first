@@ -108,11 +108,11 @@ List<CartItem> dummyCart = [
         menuItemId: '123',
         menuItemName: 'Nurkan ciger menu',
       ),
-      amount: 2),
+      quantity: 2),
   CartItem(
       menuItem: MenuItem(
         menuItemId: '12',
         menuItemName: 'Es Campur menu',
       ),
-      amount: 1)
+      quantity: 1)
 ];

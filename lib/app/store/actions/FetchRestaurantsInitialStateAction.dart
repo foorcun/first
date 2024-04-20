@@ -27,13 +27,13 @@ class FetchRestaurantsInitialStateAction {
           await RestaurantService().fetchRestaurants();
       store.dispatch(SetInitialRestaurantStateAction(listRestaurant));
 
-      MenuGroups menuGroups =
-          await MenuGroupsService().fetchMenuGroups();
+      // MenuGroups menuGroups =
+      //     await MenuGroupsService().fetchMenuGroups();
       
-      store.dispatch(SetInitialMenuGroupsStateAction(menuGroups)); 
+      // store.dispatch(SetInitialMenuGroupsStateAction(menuGroups)); 
 
-      List<Menu> menuler = await MenulerService().fetchMenu();
-      store.dispatch(SetInitialMenulerStateAction(menuler));
+      // List<Menu> menuler = await MenulerService().fetchMenu();
+      // store.dispatch(SetInitialMenulerStateAction(menuler));
 
     });
 

@@ -1,7 +1,9 @@
-import 'package:first/app/features/restaurant/domain/Menu.dart';
-import 'package:first/app/features/restaurant/domain/MenuItem.dart';
-import 'package:first/app/features/restaurant/domain/dummy/dummy_domain.dart';
+import 'package:first/app/features/restaurant/domain/CartItem.dart';
+import 'package:first/app/store/AppStore.dart';
+import 'package:first/app/store/actions/candidate_cart_item_action.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 
 class MenuSelectionPage extends StatelessWidget {
   const MenuSelectionPage({super.key});
@@ -10,27 +12,32 @@ class MenuSelectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MenuItem selectedMenuItem =
-        ModalRoute.of(context)!.settings.arguments as MenuItem;
+    // final MenuItem selectedMenuItem =
+    //     ModalRoute.of(context)!.settings.arguments as MenuItem;
+    
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("Menu Selection Page"),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 9,
-            // child: MenuSelectionWidget(menuItem: dummyMenu),
-            child: MenuSelectionWidget(menuItem: selectedMenuItem),
-            // child: selectedMenuItem != null ? MenuSelectionWidget(menuItem: selectedMenuItem!): Text('No menu item selected'),
-          ),
-          Expanded(
-            flex: 1,
-            child: FooterWidget(
-                ),
-          ),
-        ],
+      body: StoreConnector<AppState, CartItem?>(
+        converter: (store) => store.state.candidateCartItem,
+        builder: (context, candidateCartItem) {
+          return Column(
+            children: [
+              Expanded(
+                flex: 9,
+                // child: MenuSelectionWidget(menuItem: dummyMenu),
+                child: candidateCartItem == null ? Text("candi null") :  MenuSelectionWidget(candidateCartItem: candidateCartItem),
+                // child: selectedMenuItem != null ? MenuSelectionWidget(menuItem: selectedMenuItem!): Text('No menu item selected'),
+              ),
+              Expanded(
+                flex: 1,
+                child: candidateCartItem == null ? Text("bu null") : FooterWidget(context: context, candidateCartItem: candidateCartItem,),
+              ),
+            ],
+          );
+        }
       ),
     );
   }
@@ -39,44 +46,40 @@ class MenuSelectionPage extends StatelessWidget {
 class MenuSelectionWidget extends StatelessWidget {
   const MenuSelectionWidget({
     super.key,
-    required this.menuItem,
+    required this.candidateCartItem,
   });
 
-  final MenuItem menuItem;
+  final CartItem candidateCartItem;
 
   @override
   Widget build(BuildContext context) {
+    print("3####");
+    print(candidateCartItem);
+    // return Text(candidateCartItem!.quantity.toString());
     return Text(
-      menuItem.menuItemName!,
+      candidateCartItem.menuItem.menuItemName!,
       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     );
   }
 }
 
-class FooterWidget extends StatefulWidget {
-  const FooterWidget({super.key});
+class FooterWidget extends StatelessWidget {
+  final CartItem candidateCartItem;
+  final BuildContext context;
 
-  @override
-  State<FooterWidget> createState() => _FooterWidget();
-}
+  FooterWidget({
+    required this.context,
+    required this.candidateCartItem,
+  });
 
-class _FooterWidget extends State<FooterWidget> {
-  int counter = 1;
-
-  _onDecreament() {
-    setState(() {
-      if (counter > 1) {
-        counter--;
-      }
-    });
+  void _onIncrement() {
+    print('Increment');
+    StoreProvider.of<AppState>(context).dispatch(CandidateCartItemQuantityInrementAction(candidateCartItem));
   }
-
-    _onIncrement() {
-    setState(() {
-        counter++;
-    });
+  void _onDecrement() {
+    print('_onDecrement');
+    StoreProvider.of<AppState>(context).dispatch(CandidateCartItemQuantityDecrementAction(candidateCartItem));
   }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -90,28 +93,30 @@ class _FooterWidget extends State<FooterWidget> {
             child: Row(
               children: [
                 ElevatedButton(
-                  onPressed: _onDecreament,
-                  child: Icon(Icons.remove),
+                  onPressed: (){
+                    _onDecrement();
+                  },
+                  child:  Icon(Icons.remove),
                 ),
                 // SizedBox(width: 8.0),
                 Text(
-                  '$counter',
+                  candidateCartItem.quantity.toString(),
                   style: TextStyle(fontSize: 16.0),
                 ),
                 // SizedBox(width: 8.0),
                 ElevatedButton(
-                  onPressed: _onIncrement,
+                  onPressed: (){
+                    _onIncrement();
+                  },
                   child: Icon(Icons.add),
                 ),
               ],
             ),
           ),
           Expanded(
-            flex: 2,
+            flex:2,
             child: ElevatedButton(
-              // onPressed: onIncrement,
               onPressed: null,
-              // onPressed: () => counter + 1,
               child: Text('Add to Cart'),
             ),
           ),

@@ -1,32 +1,33 @@
 // Update the initial state to include menu groups
+import 'package:first/app/features/restaurant/domain/CartItem.dart';
 import 'package:first/app/features/restaurant/domain/Menu.dart';
 import 'package:first/app/features/restaurant/domain/MenuGroups.dart';
+import 'package:first/app/features/restaurant/domain/MenuItem.dart';
 import 'package:first/app/features/restaurant/domain/Restaurant.dart';
 
 class AppState {
   final List<Restaurant> restaurantList; // qr gelince tum Restoran table ini almamiza gerek kalmayacak.
   final Restaurant? selectedRestaurant;
   // final List<MenuGroup>? menuGroupsList;
-  final MenuGroups? menuGroups;
+  final MenuGroups? menuGroups; // Silinecek
   final bool isLoading;
-  final List<Menu>? menuler;
+  final List<Menu>? menuler; // Silinecek
+  final CartItem? candidateCartItem;
 
-  AppState({required this.restaurantList, this.selectedRestaurant,this.menuGroups, required this.isLoading, this.menuler});
+  AppState({required this.restaurantList, this.selectedRestaurant,
+    this.menuGroups, required this.isLoading, this.menuler, this.candidateCartItem});
 }
 
 
 AppState initialState = AppState(
-      // restaurantList: [
-      //   Restaurant(name: 'Restaurant 1', cuisine: 'Italian'),
-      //   Restaurant(name: 'Restaurant 2', cuisine: 'Mexican'),
-      //   Restaurant(name: 'Restaurant 3', cuisine: 'Chinese'),
-      // ],
       restaurantList: [],
       selectedRestaurant: null,
       // menuGroups: MenuGroups(groups: ['Appetizers', 'Main Course', 'Desserts']),
       menuGroups: null,
       isLoading: false,
       menuler: null,
+      candidateCartItem: null
+      
     );
 
 

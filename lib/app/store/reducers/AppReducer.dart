@@ -1,4 +1,5 @@
 // Update the reducer to handle updating menu groups
+import 'package:first/app/features/restaurant/domain/CartItem.dart';
 import 'package:first/app/store/actions/SetInitialMenulerStateAction.dart';
 import 'package:first/app/store/actions/UpdateMenuGroupsAction.dart';
 import 'package:first/app/store/AppStore.dart';
@@ -6,6 +7,7 @@ import 'package:first/app/store/actions/LoadingStateAction.dart';
 import 'package:first/app/store/actions/SelectRestaurantAction.dart';
 import 'package:first/app/store/actions/SetInitialMenuGroupsStateAction.dart';
 import 'package:first/app/store/actions/SetInitialStateAction.dart';
+import 'package:first/app/store/actions/candidate_cart_item_action.dart';
 
 AppState appReducer(AppState state, dynamic action) {
   if (action is SelectRestaurantAction) {
@@ -52,6 +54,37 @@ AppState appReducer(AppState state, dynamic action) {
         isLoading: state.isLoading,
         menuler: action.menuler);
     }
+    if(action is CandidateCartItemAction){
+                        print("CandidateCartItemAction Reducer oncesi");
+
+        return AppState(
+        restaurantList: state.restaurantList,
+        selectedRestaurant: state.selectedRestaurant,
+        menuGroups: state.menuGroups,
+        isLoading: state.isLoading,
+        menuler: state.menuler,
+        candidateCartItem: action.cartItem);
+    }
+        if(action is CandidateCartItemQuantityInrementAction){
+        return AppState(
+        restaurantList: state.restaurantList,
+        selectedRestaurant: state.selectedRestaurant,
+        menuGroups: state.menuGroups,
+        isLoading: state.isLoading,
+        menuler: state.menuler,
+        candidateCartItem: CartItem(menuItem: action.cartItem.menuItem, quantity: action.cartItem.quantity + 1)
+        );
+    }
+    if(action is CandidateCartItemQuantityDecrementAction){
+        return AppState(
+        restaurantList: state.restaurantList,
+        selectedRestaurant: state.selectedRestaurant,
+        menuGroups: state.menuGroups,
+        isLoading: state.isLoading,
+        menuler: state.menuler,
+        candidateCartItem: action.cartItem.quantity != 0 ? CartItem(menuItem: action.cartItem.menuItem, quantity: action.cartItem.quantity - 1) : action.cartItem
+        );
+    } 
   return state;
 }
 
