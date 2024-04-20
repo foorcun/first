@@ -25,7 +25,7 @@ class MenuSubGroupView extends StatelessWidget {
                   title: menuSubGroup.menuItems![index].menuItemId != null
                       ? Text(menuSubGroup.menuItems![index].menuItemId!)
                       : Text('No menu menuItemName found'),
-                  // subtitle: Text('${menuSubGroupList[index].menuler?.length.toString()}'),
+                  subtitle: Text('${menuSubGroup.menuItems![index].menuItemName}'),
                   onTap: () {
                     // // Handle tap on the restaurant
                     // print('Tapped on ${restaurantList[index].name}');
