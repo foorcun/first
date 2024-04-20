@@ -6,26 +6,29 @@ import 'package:flutter/material.dart';
 class MenuSelectionPage extends StatelessWidget {
   const MenuSelectionPage({super.key});
 
+  // final MenuItem? selectedMenuItem;
+
   @override
   Widget build(BuildContext context) {
+    final MenuItem selectedMenuItem =
+        ModalRoute.of(context)!.settings.arguments as MenuItem;
+
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text("Menu Selection Page"),
-      // ),
+      appBar: AppBar(
+        title: const Text("Menu Selection Page"),
+      ),
       body: Column(
         children: [
           Expanded(
             flex: 9,
-            child: MenuSelectionWidget(menuItem: dummyMenu),
+            // child: MenuSelectionWidget(menuItem: dummyMenu),
+            child: MenuSelectionWidget(menuItem: selectedMenuItem),
+            // child: selectedMenuItem != null ? MenuSelectionWidget(menuItem: selectedMenuItem!): Text('No menu item selected'),
           ),
           Expanded(
             flex: 1,
             child: FooterWidget(
-              counter: 1,
-              onIncrement: () {},
-              onButton1Pressed: () {},
-              onButton2Pressed: () {},
-            ),
+                ),
           ),
         ],
       ),
@@ -50,18 +53,29 @@ class MenuSelectionWidget extends StatelessWidget {
   }
 }
 
-class FooterWidget extends StatelessWidget {
-  final int counter;
-  final VoidCallback onIncrement;
-  final VoidCallback onButton1Pressed;
-  final VoidCallback onButton2Pressed;
+class FooterWidget extends StatefulWidget {
+  const FooterWidget({super.key});
 
-  FooterWidget({
-    required this.counter,
-    required this.onIncrement,
-    required this.onButton1Pressed,
-    required this.onButton2Pressed,
-  });
+  @override
+  State<FooterWidget> createState() => _FooterWidget();
+}
+
+class _FooterWidget extends State<FooterWidget> {
+  int counter = 1;
+
+  _onDecreament() {
+    setState(() {
+      if (counter > 1) {
+        counter--;
+      }
+    });
+  }
+
+    _onIncrement() {
+    setState(() {
+        counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +90,8 @@ class FooterWidget extends StatelessWidget {
             child: Row(
               children: [
                 ElevatedButton(
-                  onPressed: onButton1Pressed,
-                  child:  Icon(Icons.remove),
+                  onPressed: _onDecreament,
+                  child: Icon(Icons.remove),
                 ),
                 // SizedBox(width: 8.0),
                 Text(
@@ -86,16 +100,18 @@ class FooterWidget extends StatelessWidget {
                 ),
                 // SizedBox(width: 8.0),
                 ElevatedButton(
-                  onPressed: onButton2Pressed,
+                  onPressed: _onIncrement,
                   child: Icon(Icons.add),
                 ),
               ],
             ),
           ),
           Expanded(
-            flex:2,
+            flex: 2,
             child: ElevatedButton(
-              onPressed: onIncrement,
+              // onPressed: onIncrement,
+              onPressed: null,
+              // onPressed: () => counter + 1,
               child: Text('Add to Cart'),
             ),
           ),

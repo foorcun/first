@@ -12,7 +12,7 @@ Map<String, WidgetBuilder> routes = {
   '/menuGroupPage': (context) => MenuGroupPage(),
   // '/menuGroupsPage': (context) => MenuGroupsPage(),
   // '/menuler': (context) => MenulerListViewPage(),
-  '/menuSelectionPage':(context) => MenuSelectionPage(),
+  '/menuSelectionPage': (context) => MenuSelectionPage(),
   '/cartPage':(context) => CartPage()
 };
 

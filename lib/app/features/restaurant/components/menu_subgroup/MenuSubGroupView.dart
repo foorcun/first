@@ -32,6 +32,7 @@ class MenuSubGroupView extends StatelessWidget {
                     // StoreProvider.of<AppState>(context)
                     //     .dispatch(SelectRestaurantAction(restaurantList[index]));
                     // Navigator.pushNamed(context, "/menuGroupPage");
+                    Navigator.pushNamed(context, "/menuSelectionPage", arguments: menuSubGroup.menuItems![index]);
                   },
                 );
               },
