@@ -45,7 +45,7 @@ class MenuSubGroupView extends StatelessWidget {
                 
                   // print(CartItem(menuItem: menuSubGroup.menuItems![index], quantity: 2).quantity);
                         print("StoreProvider oncesi");
-                        StoreProvider.of<AppState>(context).dispatch(CandidateCartItemAction(CartItem(menuItem: menuSubGroup.menuItems![index], quantity: 2)));
+                        StoreProvider.of<AppState>(context).dispatch(CandidateCartItemAction(CartItem(menuItem: menuSubGroup.menuItems![index], quantity: 1)));
                         Navigator.pushNamed(context, "/menuSelectionPage");
                       },
                     );

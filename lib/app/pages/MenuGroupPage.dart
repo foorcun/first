@@ -14,7 +14,6 @@ class MenuGroupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: const MenuGroupPageAppBar(),
       body: StoreConnector<AppState, bool>(
           converter: (store) => store.state.isLoading,
@@ -37,49 +36,64 @@ class MenuGroupPage extends StatelessWidget {
   }
 }
 
-      class MenuGroupPageAppBar extends StatelessWidget implements PreferredSizeWidget {
-        const MenuGroupPageAppBar({
-          Key? key,
-        }) : super(key: key);
+class MenuGroupPageAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const MenuGroupPageAppBar({
+    Key? key,
+  }) : super(key: key);
 
-        @override
-        Size get preferredSize => Size.fromHeight(kToolbarHeight);
-
-        @override
-        Widget build(BuildContext context) {
-          return StoreConnector<AppState, Restaurant?>(
-            converter: (store) => store.state.selectedRestaurant,
-            builder: (context, selectedRestaurant) {
-              return AppBar(
-                title:  AppBarText(selectedRestaurant: selectedRestaurant!),
-              );
-            }
-          );
-        }
-        
-      }
-
-class AppBarText extends StatelessWidget {
-  const AppBarText({
-    super.key,
-    required this.selectedRestaurant
-  });
-
-  final Restaurant selectedRestaurant;
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, List<CartItem>?>(
-      converter: (store) => store.state.cart,
-      builder: (context, cart) {
-        print(cart != null ? cart.toString() : '0F');
-        return Text(selectedRestaurant.name + ' - ' + (cart != null ? cart.length.toString() : '0'));
-      }
-    );
+    return StoreConnector<AppState, Restaurant?>(
+        converter: (store) => store.state.selectedRestaurant,
+        builder: (context, selectedRestaurant) {
+          return AppBar(
+            title: Text(selectedRestaurant!.name),
+            actions: [
+              Container(
+                margin: EdgeInsets.only(right: 10),
+                child: Badge(
+                  label: StoreConnector<AppState, List<CartItem>?>(
+                      converter: (store) => store.state.cart,
+                      builder: (context, cart) {
+                        return Text(cart != null ? cart.length.toString() : '0');
+                      }),
+                  child: IconButton(
+                    icon: const Icon(Icons.shopping_cart),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/cartPage');
+                    },
+                  ),
+                ),
+              ),
+            ],
+          );
+        });
   }
 }
 
-      // ...
+// class AppBarText extends StatelessWidget {
+//   const AppBarText({super.key, required this.selectedRestaurant});
+
+//   final Restaurant selectedRestaurant;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return StoreConnector<AppState, List<CartItem>?>(
+//         converter: (store) => store.state.cart,
+//         builder: (context, cart) {
+//           print(cart != null ? cart.toString() : '0F');
+//           return Text(selectedRestaurant.name +
+//               ' - ' +
+//               (cart != null ? cart.length.toString() : '0'));
+//         });
+//   }
+// }
+
+// // ...
 
 class MenuGroupWidgetWithAppStore extends StatelessWidget {
   const MenuGroupWidgetWithAppStore({
@@ -89,33 +103,34 @@ class MenuGroupWidgetWithAppStore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, Restaurant?>(
-      converter: (store) => store.state.selectedRestaurant,
-      builder: (context, selectedRestaurant) {
-        // return MenuGroupWidget(
-        //   menuGroup: dummyListMenuGroup[0],
-        // );
-        // return Text(selectedRestaurant!.menu != null ? selectedRestaurant.menu!.menuId : 'No menu found');
-        // return Text(selectedRestaurant!.menu != null ? selectedRestaurant.menu!.menuSubGroups!.length.toString() : 'No menu found');
-        return selectedRestaurant!.menu != null ? MenuSubGroupLIstView(menuSubGroups : selectedRestaurant.menu!.menuSubGroups!) : Text('No menu found');
-      }
-    );
+        converter: (store) => store.state.selectedRestaurant,
+        builder: (context, selectedRestaurant) {
+          // return MenuGroupWidget(
+          //   menuGroup: dummyListMenuGroup[0],
+          // );
+          // return Text(selectedRestaurant!.menu != null ? selectedRestaurant.menu!.menuId : 'No menu found');
+          // return Text(selectedRestaurant!.menu != null ? selectedRestaurant.menu!.menuSubGroups!.length.toString() : 'No menu found');
+          return selectedRestaurant!.menu != null
+              ? MenuSubGroupLIstView(
+                  menuSubGroups: selectedRestaurant.menu!.menuSubGroups!)
+              : Text('No menu found');
+        });
   }
 }
 
 class MenuSubGroupLIstView extends StatelessWidget {
-  const MenuSubGroupLIstView({
-    super.key,
-    required this.menuSubGroups
-  });
+  const MenuSubGroupLIstView({super.key, required this.menuSubGroups});
   final List<MenuSubGroup> menuSubGroups;
 
   @override
   Widget build(BuildContext context) {
     // return Text(menuSubGroups.length.toString());
-    return SingleChildScrollView(child: ListView.builder(
-      shrinkWrap: true,
-      itemCount: menuSubGroups.length,
-      itemBuilder:(context,index)=> MenuSubGroupView(menuSubGroup: menuSubGroups[index],)));
-    
+    return SingleChildScrollView(
+        child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: menuSubGroups.length,
+            itemBuilder: (context, index) => MenuSubGroupView(
+                  menuSubGroup: menuSubGroups[index],
+                )));
   }
 }
