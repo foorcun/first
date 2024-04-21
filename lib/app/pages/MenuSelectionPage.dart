@@ -83,7 +83,8 @@ class FooterWidget extends StatelessWidget {
   void _onAddToCart() {
     print('_onAddToCart');
     StoreProvider.of<AppState>(context).dispatch(CandidateCartItemAddAction(candidateCartItem));
-    Navigator.pushNamed(context, "/menuGroupPage");
+    // Navigator.pushNamed(context, "/menuGroupPage");
+    Navigator.pop(context);
 
   }
   @override
